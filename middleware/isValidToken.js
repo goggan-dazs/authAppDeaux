@@ -2,8 +2,9 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 const isValidToken = (req, res, next) => {
-    const jwt = require('jsonwebtoken');
+
     const token = req.cookies["token"]
+    console.log(token);
     if (token) {
       jwt.verify(
         token, 

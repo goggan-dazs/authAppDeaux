@@ -7,7 +7,7 @@ const {User} = require('../models');
 const jwt = require('jsonwebtoken');
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+router.get('/', (req, res, next) => {
   res.send('respond with a resource');
 });
 
@@ -46,7 +46,7 @@ const user = await User.findOne({
       {expiresIn: "1h"}
     );
     res.cookie("token", token)
-   res.redirect('/profile');
+   res.redirect(`/profile/${user.id}`);
   } else {
     res.send("Sorry wrong password!")
   }
